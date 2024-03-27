@@ -1,0 +1,75 @@
+.horizontal-slider {
+    width: 100%;
+    height: 10px;
+    margin: 20px 0;
+  }
+  
+  .thumb {
+    height: 24px;
+    width: 24px;
+    background-color: #0b7dda;
+    border-radius: 50%;
+    cursor: grab;
+    outline: none;
+    border: 2px solid #fff;
+    top: -7px; /* Adjust to center vertically */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3); /* Optional: add a shadow to the thumb for depth */
+  }
+  
+  .track {
+    background: #ddd; /* Default track background */
+    height: 4px;
+    cursor: pointer;
+    border-radius: 2px; /* Optional: slightly rounded corners */
+  }
+  
+  .track:first-of-type {
+    background: red; /* Full track background */
+    position: relative; /* Allows us to position pseudo-elements */
+  }
+  
+  /* Left side marker */
+  .track:first-of-type::before {
+    content: '';
+    position: absolute;
+    left: -8px; /* Half of the width of the marker to move it outside the track */
+    top: -7px; /* Adjust to center vertically */
+    width: 18px; /* Marker size */
+    height: 18px; /* Marker size */
+    border-radius: 50%; /* Make it round */
+    background: red;
+    border: 2px solid #fff; /* Match the thumb border for consistency */
+  }
+  
+  /* Right side marker */
+  .track:first-of-type::after {
+    content: '';
+    position: absolute;
+    right: -8px; /* Same adjustment as the left marker */
+    top: -7px; /* Adjust to center vertically */
+    width: 18px; /* Marker size */
+    height: 18px; /* Marker size */
+    border-radius: 50%; /* Make it round */
+    background: red;
+    border: 2px solid #fff; /* Match the thumb border for consistency */
+  }
+  
+  .marks {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-top: 30px; /* Space for the time slot labels */
+    padding: 0 15px; /* Adjust padding to match the position of the side markers */
+  }
+  
+  .mark {
+    position: absolute;
+    transform: translateX(-50%);
+    font-size: 14px; /* Adjust the font size as necessary */
+    color: #555; /* Adjust the label color as needed */
+  }
+  
+  .mark.active {
+    color: #0b7dda; /* Active mark color */
+  }
+  
